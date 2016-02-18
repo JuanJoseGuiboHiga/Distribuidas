@@ -1,35 +1,26 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <title>Tramites</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/jquery-ui.css">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/style.css">
-        
-        <script src="jquery/jquery-1.10.2.js"></script>
-        <script src="jquery/jquery-ui.js"></script>
-    <script>
-        $(function() {
-          $( "#datepicker" ).datepicker();
-        });
-        
-         $(function() {
-          $( "#datepicker2" ).datepicker();
-        });
-    </script>
-    </head>
-    <body id="consulta"> 
-        <h1>Consuta de trámites</h1>
-        <p>Desde:</p> <input name="fecha1" type="text" id="datepicker">                
-        <p>Hasta:</p> <input name="fecha2" type="text" id="datepicker2"> 
-        
-        <button id="Buscar" class="btn btn-primary btn-block btn-large"type="submit" class="btn btn-primary btn-block btn-large" >Buscar</button>
-    </body>
+<head>
+<title>Consulta de Tramites Tramarsa</title>
+         <link rel="stylesheet" href="css/normalize.css">
+         <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<img src="http://www.tempus.com.pe/images/clientes/tramarsa.png"  height="500" width="500" alt="me">
+<div class="header">
+	<input type="text" id="searchKey"/>
+	<button id="btnSearch">Buscar Reclamo</button>
+</div>
+
+
+<div class="leftArea">
+<ul id="reclamosList"></ul>
+</div>
+
+
+<script src="jquery/jquery-1.10.2.js"></script>
+<script src="jquery/main.js"></script>
+
+</body>
 </html>
