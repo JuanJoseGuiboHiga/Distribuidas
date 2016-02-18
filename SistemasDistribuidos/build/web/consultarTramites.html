@@ -1,14 +1,17 @@
 <!DOCTYPE HTML>
+
 <html>
 <head>
 <title>Consulta de Tramites Tramarsa</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
          <link rel="stylesheet" href="css/normalize.css">
          <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-<img src="http://www.tempus.com.pe/images/clientes/tramarsa.png"  height="500" width="500" alt="me">
+
 <div class="header">
+        <h3>Ingrese su número de reclamo:</h3>
 	<input type="text" id="searchKey"/>
 	<button id="btnSearch">Buscar Reclamo</button>
 </div>
@@ -18,6 +21,21 @@
 <ul id="reclamosList"></ul>
 </div>
 
+<div class="mainArea">
+
+<label>Área:</label>
+<input type="text" id="areatxt" name="area" disabled>
+
+<label>Estado:</label>
+<input type="text" id="estadotxt" name="estadotxt" disabled/>
+
+<label>Fecha de Registro:</label>
+<input type="text" id="fechaRegistrotxt" name="fechaRegistrotxt" disabled/>
+
+<label>Observación:</label>
+<input type="text" id="observaciontxt" name="observaciontxt" disabled/>
+
+</div>
 
 <script src="jquery/jquery-1.10.2.js"></script>
 <script src="jquery/main.js"></script>

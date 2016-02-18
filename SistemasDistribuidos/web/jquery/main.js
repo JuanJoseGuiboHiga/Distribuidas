@@ -172,8 +172,10 @@ function renderListSimple(data) {
 	var list = data == null ? [] : (data instanceof Array ? data : [data]);
 
 	$('#reclamosList li').remove();
-        $('#reclamosList').append("<li>"+" Area: "+data.arearec+" "+ "  Estado:"+data.estado+"   Fecha Registro: "+data.fechaRegistro+"  Obervacion: "+data.observacion+"</li>");
-	
+        $('#areatxt').val(data.arearec);
+	$('#estadotxt').val(data.estado);
+        $('#fechaRegistrotxt').val(data.fechaRegistro);
+        $('#observaciontxt').val(data.observacion);
 }
 
 function renderDetails(reclamo) {
