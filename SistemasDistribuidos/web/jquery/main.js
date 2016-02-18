@@ -11,7 +11,8 @@ $('#btnDelete').hide();
 
 // Register listeners
 $('#btnSearch').click(function() {
-
+    if ($('#searchKey').val() == '')
+        cleanTxt();
 	search($('#searchKey').val());
         
 	return false;
@@ -24,19 +25,6 @@ $('#searchKey').keypress(function(e){
 		e.preventDefault();
 		return false;
     }
-});
-
-$('#btnAdd').click(function() {
-	newWine();
-	return false;
-});
-
-$('#btnSave').click(function() {
-	if ($('#wineId').val() == '')
-		addWine();
-	else
-		updateWine();
-	return false;
 });
 
 $('#btnDelete').click(function() {
@@ -62,13 +50,6 @@ function search(searchKey) {
 		findByName(searchKey);
 
 }
-
-function newWine() {
-	$('#btnDelete').hide();
-	currentWine = {};
-	renderDetails(currentWine); // Display empty form
-}
-
 function findAll() {
 	console.log('findAll');
 	$.ajax({
@@ -85,9 +66,10 @@ function findByName(searchKey) {
 		type: 'GET',
 		url: rootURL + '/search/' + searchKey,
 		dataType: "json",
-		success: renderListSimple 
+		success: renderListSimple, 
+               
 	});
-       
+             
 }
 
 function findById(id) {
@@ -101,56 +83,6 @@ function findById(id) {
 			console.log('findById success: ' + data.name);
 			currentWine = data;
 			renderDetails(currentWine);
-		}
-	});
-}
-
-function addWine() {
-	console.log('addWine');
-	$.ajax({
-		type: 'POST',
-		contentType: 'application/json',
-		url: rootURL,
-		dataType: "json",
-		data: formToJSON(),
-		success: function(data, textStatus, jqXHR){
-			alert('Wine created successfully');
-			$('#btnDelete').show();
-			$('#wineId').val(data.id);
-		},
-		error: function(jqXHR, textStatus, errorThrown){
-			alert('addWine error: ' + textStatus);
-		}
-	});
-}
-
-function updateWine() {
-	console.log('updateWine');
-	$.ajax({
-		type: 'PUT',
-		contentType: 'application/json',
-		url: rootURL + '/' + $('#wineId').val(),
-		dataType: "json",
-		data: formToJSON(),
-		success: function(data, textStatus, jqXHR){
-			alert('Wine updated successfully');
-		},
-		error: function(jqXHR, textStatus, errorThrown){
-			alert('updateWine error: ' + textStatus);
-		}
-	});
-}
-
-function deleteWine() {
-	console.log('deleteWine');
-	$.ajax({
-		type: 'DELETE',
-		url: rootURL + '/' + $('#wineId').val(),
-		success: function(data, textStatus, jqXHR){
-			alert('Wine deleted successfully');
-		},
-		error: function(jqXHR, textStatus, errorThrown){
-			alert('deleteWine error');
 		}
 	});
 }
@@ -170,13 +102,25 @@ function renderList(data) {
 function renderListSimple(data) {
 	// JAX-RS serializes an empty list as null, and a 'collection of one' as an object (not an 'array of one')
 	var list = data == null ? [] : (data instanceof Array ? data : [data]);
-
+        if(data==null)
+          alert("El número de reclamo ingresado no es válido, por favor vuelva a intentar");
+          
+        else
 	$('#reclamosList li').remove();
         $('#areatxt').val(data.arearec);
 	$('#estadotxt').val(data.estado);
         $('#fechaRegistrotxt').val(data.fechaRegistro);
         $('#observaciontxt').val(data.observacion);
 }
+
+function cleanTxt() {
+        $('#areatxt').val("");
+	$('#estadotxt').val("");
+        $('#fechaRegistrotxt').val("");
+        $('#observaciontxt').val("");
+}
+
+
 
 function renderDetails(reclamo) {
 	$('#arearec').val(reclamo.arearec);
@@ -202,3 +146,5 @@ function formToJSON() {
 		"description": $('#description').val()
 		});
 }
+
+
