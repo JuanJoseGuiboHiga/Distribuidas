@@ -1,5 +1,5 @@
 // The root URL for the RESTful services
-var rootURL = "http://localhost:8080/TramarsaREST/webresources/reclamodetallefact";
+var rootURL = "http://localhost:8080/TramarsaServices/webresources/reclamodetallefacturas";
 
 var currentWine;
 
@@ -107,6 +107,8 @@ function renderListSimple(data) {
           
         else
 	$('#reclamosList li').remove();
+        $('#itemtxt').val(data.item);
+	$('#docitemtxt').val(data.docItem);
         $('#ntDoctxt').val(data.nuevoTipdoc);
 	$('#nSerietxt').val(data.nuevoSerie);
         $('#nNumerotxt').val(data.nuevoNumero);
@@ -116,7 +118,9 @@ function renderListSimple(data) {
 }
 
 function cleanTxt() {
-         $('#ntDoctxt').val("");
+        $('#itemtxt').val("");
+	$('#docitemtxt').val("");
+        $('#ntDoctxt').val("");
 	$('#nSerietxt').val("");
         $('#nNumerotxt').val("");
         $('#nMonedatxt').val("");

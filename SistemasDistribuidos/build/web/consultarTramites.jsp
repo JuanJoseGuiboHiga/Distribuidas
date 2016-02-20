@@ -44,19 +44,19 @@
 <center><input type="text" id="ntDoctxt" name="ntDoctxt" style="width:300px" disabled/></center>
 
 <label>Serie:</label>
-<center><input type="text" id="nSerietxt" name="nSerietxt" style="width:300px;height:200px" disabled/></center>
+<center><input type="text" id="nSerietxt" name="nSerietxt" style="width:300px;" disabled/></center>
 
 <label>Numero:</label>
-<center><input type="text" id="nNumerotxt" name="nNumerotxt" style="width:300px;height:200px" disabled/></center>
+<center><input type="text" id="nNumerotxt" name="nNumerotxt" style="width:300px;" disabled/></center>
 
 <label>Moneda:</label>
-<center><input type="text" id="nMonedatxt" name="nMonedatxt" style="width:300px;height:200px" disabled/></center>
+<center><input type="text" id="nMonedatxt" name="nMonedatxt" style="width:300px;" disabled/></center>
 
 <label>Monto:</label>
-<center><input type="text" id="nMontotxt" name="nMontotxt" style="width:300px;height:200px" disabled/></center>
+<center><input type="text" id="nMontotxt" name="nMontotxt" style="width:300px;" disabled/></center>
 
 <label>Estado:</label>
-<center><input type="text" id="nEstadotxt" name="nEstadotxt" style="width:300px;height:200px" disabled/></center>
+<center><input type="text" id="nEstadotxt" name="nEstadotxt" style="width:300px;" disabled/></center>
 
 </div>
 
